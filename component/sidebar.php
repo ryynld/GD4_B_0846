@@ -62,7 +62,7 @@
                                     <a href="./dashboardPage.php" style="font-weight:600" >Dashboard</a>
                                 </div>
                                 <div class="content-menu" >
-                                    <i class="fa fa-user"></i>
+                                    <i class="fa fa-user-circle"></i>
                                     <a href="./editProfile.php" style="font-weight:600" >Edit Profile</a>
                                 </div>
                                 <div class="content-menu" >
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="content-menu" >
                                     <i class="fa fa-film"></i>
-                                    <a href="./listMoviesPage.php" style="font-weight:600">List Series</a>
+                                    <a href="#" style="font-weight:600">List Series</a>
                                 </div>
                                 <div class="content-menu" >
                                     <i class="fa fa-sign-out"></i>
