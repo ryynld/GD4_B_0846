@@ -1,48 +1,42 @@
 <?php 
-    include '../component/sidebar.php' 
+    include '../component/sidebar.php'
 ?> 
+
 <div class="container p-3 m-4 h-100" style="background-color: #FFFFFF; border-top: 5px solid #D40013; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
     <div class="body d-flex justify-content-between">
-        <h4>LIST MOVIE</h4>
+        <h4>EDIT PROFILE</h4>
     </div><hr>
-    <table class="table "> 
-        <thead>
-        <tr>
-            <th scope="col">No</th> 
-            <th scope="col">Name</th> 
-            <th scope="col">Genre</th> 
-            <th scope="col">Realese</th> 
-            <th scope="col">Season</th> 
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-            <?php
-            $query = mysqli_query($con, "SELECT * FROM movies") or die(mysqli_error($con));
-            if (mysqli_num_rows($query) == 0) { 
-                echo '<tr> <td colspan="7"> Tidak ada data </td> </tr>'; 
-            }
-            else{
-                $no = 1; 
-                while($data = mysqli_fetch_assoc($query)){ 
-                    echo'
-                    <tr>
-                        <th scope="row">'.$no.'</th> 
-                        <td>'.$data['name'].'</td> 
-                        <td>'.$data['genre'].'</td> 
-                        <td>'.$data['release'].'</td> 
-                        <td>'.$data['season'].'</td> 
-                        <td><a href="../process/deleteMovieProcess.php?id='.$data['id'].'"
-                            onClick="return confirm ( \'Are you sure want to delete this data?\')">
-                            <i style="color: red" class="fa fa-trash fa-2x"></i> </a>
-                        </td>
-                    </tr>';
-                    $no++;
+    <div class="profile-input-field">
+        <form method="post" action="#" >
+                <?php
+                $query = mysqli_query($con, "SELECT * FROM users  ORDER BY id DESC LIMIT 1") or die(mysqli_error($con));
+                if (mysqli_num_rows($query) == 0) { 
+                    echo '<tr> <td colspan="7"> Tidak ada data </td> </tr>'; 
                 }
-            }
-            ?>
-        </tbody>
-    </table>
+                else{
+                    while($data = mysqli_fetch_assoc($query)){
+                        echo'
+                        <div class=form-group>
+                            <h5>Nama</h5>
+                            <input type="text" class="form-control" name="name" value="'.$data['name'].'" required />
+                        </div><br>
+                        <div class=form-group>
+                            <h5>Email</h5>
+                            <input type="text" class="form-control" name="email" value="'.$data['email'].'" required />
+                        </div><br>
+                        <div class=form-group>
+                            <h5>Phone Number</h5>
+                            <input type="text" class="form-control" name="phonenum" value="'.$data['phonenum'].'" required />
+                        </div><br>
+                        <div class=form-group>
+                            <h5>Membership</h5>
+                            <input type="text" class="form-control" name="membership" value="'.$data['membership'].'" required />
+                        </div>';
+                    }
+                }
+                ?>
+        </form>
+    </div>
 </div>
 
 </aside> 
