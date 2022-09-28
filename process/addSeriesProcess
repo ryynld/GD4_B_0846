@@ -1,0 +1,28 @@
+<?php
+
+include("db.php");
+
+if(isset($_POST['tambah'])){
+
+    $name = $_POST['name'];
+    $genre = $_POST['genre'];
+    $release = $_POST['release'];
+    $episode = $_POST['episode'];
+    $season = $_POST['season'];
+    $synopsis = $_POST['synopsis'];cccc
+
+    $sql = "INSERT INTO series (name, genre, release, episode, season, synopsis) VALUE ('$name', '$genre', '$release', '$episode', '$season', '$synopsis')";
+    $query = mysqli_query($con, $sql);
+
+    if( $query ) {
+        header('Location: listSeries.php?status=sukses');
+    } else {
+        header('Location: listSeries.php?status=gagal');
+    }
+
+
+} else {
+    die("Akses dilarang...");
+}
+
+?>

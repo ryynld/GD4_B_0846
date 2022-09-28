@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="content-menu" >
                                     <i class="fa fa-film"></i>
-                                    <a href="#" style="font-weight:600">List Series</a>
+                                    <a href="./listSeries.php" style="font-weight:600">List Series</a>
                                 </div>
                                 <div class="content-menu" >
                                     <i class="fa fa-sign-out"></i>
